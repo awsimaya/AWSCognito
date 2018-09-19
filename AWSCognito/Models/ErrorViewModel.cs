@@ -1,6 +1,6 @@
 using System;
 
-namespace AzureB2CSample.Models
+namespace AWSCognito.Models
 {
     public class ErrorViewModel
     {

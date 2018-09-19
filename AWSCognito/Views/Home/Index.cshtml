@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+
+<div class="row">
+    
+
+    @foreach (System.Security.Claims.Claim claim in User.Claims)
+    {
+        <label>@claim.Type : @claim.Value</label> <br />
+    }
+</div>

@@ -1,0 +1,25 @@
+@using Microsoft.Extensions.Options
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+
+@inject IOptionsMonitor<OpenIdConnectOptions> CognitoOptions
+
+@{
+    var options = CognitoOptions.Get(OpenIdConnectDefaults.AuthenticationScheme);
+}
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav navbar-right">
+        
+            <li class="navbar-text">Hello @User.Identity.Name!</li>
+        
+        <li><a asp-area="" asp-controller="Account" asp-action="SignOut" >Sign out</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li><a asp-area="" asp-controller="Account" asp-action="SignIn">Sign in</a></li>
+    </ul>
+}
